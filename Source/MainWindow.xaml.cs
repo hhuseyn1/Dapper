@@ -3,9 +3,11 @@ using Microsoft.Extensions.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
+using System.Net.Http.Headers;
 using System.Windows;
 using System.Windows.Controls;
 using Z.BulkOperations;
+using Z.Dapper.Plus;
 
 namespace Source;
 
@@ -51,9 +53,8 @@ public partial class MainWindow : Window
         }
 
         else
-        {
             dcommand = $"SELECT * FROM Product WHERE LOWER(Name) LIKE '%'+LOWER(@a)+'%'";
-        }
+
         var reader = conn.ExecuteReader(dcommand, new {a=Searchtxtbox.Text});
         table = new DataTable();
         table.Load(reader);
@@ -62,13 +63,7 @@ public partial class MainWindow : Window
         Searchtxtbox.Text = null;
     }
 
-    private void SelectCommand(string command)
-    {
-        var reader = conn.ExecuteReader(command);
-        table = new DataTable();
-        table.Load(reader);
-        DataGrid.ItemsSource = table.AsDataView();
-    }
+  
 
     private void AddprBtn_Click(object sender, RoutedEventArgs e)
     {
