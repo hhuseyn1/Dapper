@@ -1,28 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace Source
+namespace Source;
+
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    SqlConnection conn = null;
+    SqlDataReader? reader = null;
+    SqlCommand command = null;
+    DataTable table = null;
+    string connectionString = null;
+
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+        Configure();
+        DataContext = this;
+    }
+
+    private void Configure()
+    {
+        var configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory() + "../../../../")
+                              .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).Build();
+
+        connectionString = configuration.GetConnectionString("ProductDb");
+        conn = new SqlConnection(connectionString);
     }
 }
