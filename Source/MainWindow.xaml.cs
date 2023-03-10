@@ -82,6 +82,7 @@ public partial class MainWindow : Window
 
     private void ClearListBtn_Click(object sender, RoutedEventArgs e)
     {
-
+        conn.Execute("TRUNCATE TABLE Product");
+        MessageBox.Show("Database has successfully cleared");
     }
 }
