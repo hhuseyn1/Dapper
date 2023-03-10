@@ -7,6 +7,57 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="1.2*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="2.2*"/>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Name="CreateDb"  Grid.Column="0" Grid.Row="1" Template="{StaticResource NoMouseOverButtonTemplate}" Background="MediumPurple" Foreground="White" Content="Create Db" FontSize="18" FontFamily="Calibri" Click="CreateDbBtn_Click"/>
+            <TextBox Name="Searchtxtbox"  Grid.Column="2" Grid.Row="1" />
+            <Button Name="Search" Grid.Column="4" Grid.Row="1" Template="{StaticResource NoMouseOverButtonTemplate}" Background="MediumPurple" Foreground="White" Content="Search" FontSize="18" FontFamily="Calibri" Click="SearchBtn_Click"/>
+        </Grid>
+        <!--//////////////////////////////////////////////////////////////////////////-->
+        <Grid Grid.Row="1">
+            <DataGrid Name="DataGrid"/>
+        </Grid>
+        <!--//////////////////////////////////////////////////////////////////////////-->
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.4*"/>
+            </Grid.ColumnDefinitions>
+            <Button Name="AddprBtn" Grid.Column="1" Grid.Row="1" Template="{StaticResource NoMouseOverButtonTemplate}" Background="MediumPurple" Foreground="White" Content="Add product" Click="AddprBtn_Click"/>
+            <Button Name="EditprBtn" Grid.Column="3" Grid.Row="1" Template="{StaticResource NoMouseOverButtonTemplate}" Background="MediumPurple" Foreground="White" Content="Edit product" Click="EditprBtn_Click"/>
+            <Button Name="RemovePrBtn" Grid.Column="5" Grid.Row="1" Template="{StaticResource NoMouseOverButtonTemplate}" Background="MediumPurple" Foreground="White" Content="Remove product" Click="RemoveprBtn_Click"/>
+            <Button Name="ClearListBtn" Grid.Column="7" Grid.Row="1" Template="{StaticResource NoMouseOverButtonTemplate}" Background="MediumPurple" Foreground="White" Content="Clear list" Click="ClearListBtn_Click"/>
+        </Grid>
 
     </Grid>
 </Window>
