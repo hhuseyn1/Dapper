@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Source.Models;
 using Source.Views;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -93,6 +94,20 @@ public partial class MainWindow : Window
     private void RemoveprBtn_Click(object sender, RoutedEventArgs e)
     {
 
+        List<Product> products = new();
+        Product product;
+        foreach (DataRowView item in DataGrid.SelectedItems)
+        {
+            product = new();
+            product.Id = (int)item.Row["Id"];
+            product.Name = item.Row["Name"].ToString();
+            product.Price = (decimal)item.Row["Price"];
+            product.Quantity = (int)item.Row["Quantity"];
+            product.Rating = (decimal)item.Row["Rating"];
+            products.Add(product);
+
+        }
+        conn.BulkDelete(products);
     }
 
     private void ClearListBtn_Click(object sender, RoutedEventArgs e)
