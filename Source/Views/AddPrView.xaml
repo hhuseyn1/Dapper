@@ -5,22 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Source.Views"
         mc:Ignorable="d"
-        Title="AddPrView" Height="450" Width="800">
+        Title="AddPrView" Height="450" Width="500">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="397*"/>
+            <ColumnDefinition Width="103*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
-            <RowDefinition/>
+            <RowDefinition Height="0.2*"/>
             <RowDefinition Height="0.5*"/>
-            <RowDefinition/>
+            <RowDefinition Height="0.2*"/>
             <RowDefinition Height="0.5*"/>
-            <RowDefinition/>
+            <RowDefinition Height="0.2*"/>
             <RowDefinition Height="0.5*"/>
-            <RowDefinition/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
             <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Name"/>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Text="Name"/>
+        <TextBox Name="Nametxtbox" HorizontalAlignment="Left" Width="200" Background="LightGray" Text="{Binding Product.Name,UpdateSourceTrigger=PropertyChanged}" Margin="0,62,0,62" Grid.RowSpan="3"/>
         <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Price"/>
+        <TextBox Name="Pricetxtbox" Grid.Row="3" HorizontalAlignment="Left" Width="200" Background="LightGray" Text="{Binding Product.Price,UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,62" Grid.RowSpan="2"/>
         <TextBlock Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Quantity"/>
+        <TextBox Name="Quantitytxtbox" Grid.Row="5" HorizontalAlignment="Left" Width="200" Background="LightGray" Text="{Binding Product.Quantity,UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Rating"/>
+        <TextBox Name="Ratingtxtbox" Grid.Row="6" HorizontalAlignment="Left" Width="200" Background="LightGray" Text="{Binding Product.Rating,UpdateSourceTrigger=PropertyChanged}" Margin="0,62,0,0" Grid.RowSpan="2"/>
+        <Button Grid.Row="8" Name="AddBtn" HorizontalAlignment="Left" Content="Add" Width="90" Background="ForestGreen" Foreground="White" BorderThickness="0" Click="AddBtn_Click" Margin="0,25,0,0" Grid.RowSpan="2"/>
+        <Button Grid.Row="8" Name="CancelBtn" HorizontalAlignment="Left" Content="Cancel" Width="90" Background="DarkRED" Foreground="White" BorderThickness="0" Click="CancelBtn_Click" Grid.Column="1" Margin="13,25,0,0" Grid.RowSpan="2"/>
     </Grid>
 </Window>

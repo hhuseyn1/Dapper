@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
+using Source.Views;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -67,7 +68,8 @@ public partial class MainWindow : Window
 
     private void AddprBtn_Click(object sender, RoutedEventArgs e)
     {
-
+        AddPrView addView = new();
+        addView.Show();
     }
 
     private void EditprBtn_Click(object sender, RoutedEventArgs e)
