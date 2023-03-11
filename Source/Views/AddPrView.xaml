@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="AddPrView" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Name"/>
+        <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Price"/>
+        <TextBlock Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Quantity"/>
+        <TextBlock Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Rating"/>
     </Grid>
 </Window>
