@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
+using Source.Models;
 using Source.Views;
 using System.Data;
 using System.Data.SqlClient;
@@ -74,7 +75,19 @@ public partial class MainWindow : Window
 
     private void EditprBtn_Click(object sender, RoutedEventArgs e)
     {
+        Product product;
+        if (DataGrid.SelectedItem is DataRowView item)
+        {
+            product = new();
+            product.Id = (int)item.Row["Id"];
+            product.Name = item.Row["Name"].ToString();
+            product.Price = (decimal)item.Row["Price"];
+            product.Quantity = (int)item.Row["Quantity"];
+            product.Rating= (decimal)item.Row["Rating"];
 
+            EditPrView editView = new(product);
+            editView.Show();
+        }
     }
 
     private void RemoveprBtn_Click(object sender, RoutedEventArgs e)
@@ -85,6 +98,6 @@ public partial class MainWindow : Window
     private void ClearListBtn_Click(object sender, RoutedEventArgs e)
     {
         conn.Execute("TRUNCATE TABLE Product");
-        MessageBox.Show("Database has successfully cleared");
+        MessageBox.Show("Database has been successfully cleared");
     }
 }

@@ -60,7 +60,7 @@ public partial class AddPrView : Window
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            MessageBox.Show(ex.Message);
         }
         finally
         {
